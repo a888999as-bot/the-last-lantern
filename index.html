@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#131f23">
+  <meta name="description" content="One midnight station. Three ways home. A short interactive mystery where you decide what happens next.">
+  <title>The Last Lantern · An Echo Trails Story</title>
+  <style>
+:root{color-scheme:dark;--ink:#e8e6da;--muted:#aab7b4;--dim:#788c87;--gold:#e7bd74;--line:#ffffff16;--bg:#131f23;--panel:#1c2b2e;--serif:Georgia,'Times New Roman',serif;--sans:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;min-height:100vh}button,a,input{touch-action:manipulation}button{font:inherit;color:inherit;cursor:pointer}button:disabled{cursor:default}button,a{-webkit-tap-highlight-color:transparent}button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:5px}a{color:inherit}button{border:0}main:focus{outline:0}::selection{background:#e7bd7440}.skip{position:fixed;top:-70px;left:20px;background:var(--gold);color:var(--bg);padding:12px 20px;z-index:20}.skip:focus{top:16px}.site-header{height:100px;max-width:1440px;padding:0 5.5%;margin:auto;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-size:12px;font-weight:650;letter-spacing:2.5px}.brand-mark{font-size:38px;line-height:1;color:var(--gold);font-weight:300}.brand-sub{display:block;font-size:8px;letter-spacing:2px;color:var(--dim);margin-top:3px}nav{display:flex;gap:24px}.quiet{padding:10px 0;background:none;color:var(--muted);font-size:12px;letter-spacing:.2px}.quiet:hover{color:var(--gold)}.quiet>span:first-child:not(.note-count){margin-right:7px}.note-count{border:1px solid #6c8178;border-radius:50%;font-size:9px;display:inline-grid;place-items:center;width:19px;height:19px;margin-left:5px;color:var(--gold)}.eyebrow{text-transform:uppercase;letter-spacing:2.6px;font-size:9px;font-weight:600;color:var(--gold);display:flex;align-items:center;gap:10px}.eyebrow:before{content:'';width:22px;height:1px;background:currentColor;opacity:.6}.landing{position:relative;max-width:1440px;margin:auto;min-height:680px;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}.landing-copy{padding:90px 0 80px 11%;position:relative;z-index:2;max-width:600px}.landing h1{font-family:var(--serif);font-weight:400;letter-spacing:-4px;font-size:clamp(68px,6.6vw,96px);line-height:.98;margin:30px 0 25px}.landing h1 em{font-weight:400;color:var(--gold)}.intro-text{font-family:var(--serif);font-size:22px;line-height:1.5;color:#c5d0c8;max-width:380px}.intro-small{color:var(--muted);font-size:13px;line-height:1.9;max-width:340px;margin:22px 0 30px}.primary{background:var(--gold);color:#182426;display:inline-flex;align-items:center;justify-content:space-between;gap:30px;min-height:54px;padding:14px 23px;font-size:13px;font-weight:650;border-radius:3px;transition:background .2s,transform .2s}.primary:hover{background:#f0cc8e;transform:translateY(-2px)}.primary .arrow{font-size:20px;font-weight:300}.landing-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}.text-link{border:0;border-bottom:1px solid #91a49b55;background:none;color:var(--muted);padding:4px 0;font-size:12px}.text-link:hover{color:var(--gold)}.chapter-meta{display:flex;gap:21px;margin-top:26px;font-size:10px;color:var(--dim);letter-spacing:.8px}.chapter-meta span+span:before{content:'·';margin-right:21px;color:var(--gold)}.landing-art{position:absolute;width:67%;right:-9%;top:-5px;bottom:0;opacity:.92;pointer-events:none;mask-image:linear-gradient(to right,transparent,#000 22%)}.landing-art svg{width:100%;height:100%;object-fit:cover}.art-caption{position:absolute;right:7.8%;bottom:40px;color:#a2b4ab;font-size:8px;letter-spacing:2.1px;writing-mode:vertical-rl;opacity:.65}.journey-strip{max-width:1280px;margin:0 auto;padding:27px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);gap:30px}.journey-strip>div{display:flex;gap:19px;align-items:center}.journey-strip .number{font-family:var(--serif);font-size:27px;color:#59736b}.journey-strip strong{display:block;font-size:12px;font-weight:500;color:#c3cfc6}.journey-strip p{font-size:11px;margin:4px 0 0;color:var(--dim)}.site-footer{max-width:1440px;padding:30px 5.5%;margin:auto;display:flex;justify-content:space-between;color:var(--dim);font-size:10px;letter-spacing:.3px}.site-footer button{background:none;color:var(--dim);font-size:10px}.site-footer button:hover{color:var(--gold)}
+.reader{display:grid;grid-template-columns:minmax(300px,.92fr) minmax(440px,1fr);max-width:1320px;margin:0 auto;min-height:calc(100vh - 178px);padding:40px 40px 0;gap:64px}.scene-panel{position:sticky;top:35px;align-self:start}.scene-art{position:relative;background:linear-gradient(155deg,#213c3b,#0a161e);overflow:hidden;aspect-ratio:4/4.5;border-radius:160px 160px 3px 3px;border:1px solid #ffffff0e}.scene-art svg{width:100%;height:100%}.scene-overlay{position:absolute;inset:0;background:linear-gradient(0deg,#101e25ad,transparent 40%);pointer-events:none}.scene-coordinates{position:absolute;bottom:26px;left:30px;font-size:8px;letter-spacing:2px;color:#b5c5b6}.scene-title{font:italic 32px/1.1 var(--serif);margin:23px 0 8px;color:#cbd1c2}.scene-description{font-size:11px;color:var(--dim);margin:0}.progress-track{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding:22px 0 14px;margin-top:28px;gap:4px}.progress-step{font-size:8px;letter-spacing:1px;color:#526963;text-transform:uppercase;display:flex;align-items:center;gap:7px}.progress-step:before{content:'';width:4px;height:4px;display:block;background:currentColor;border-radius:50%}.progress-step.active{color:var(--gold)}.progress-step.done{color:#a1b8a7}.story-panel{padding:21px 0 50px;min-width:0}.story-heading{font:400 46px/1.1 var(--serif);letter-spacing:-1.4px;margin:22px 0 27px;max-width:540px}.story-body{color:#c9d0c6;font-family:var(--serif);font-size:18px;line-height:1.65;max-width:540px}.story-body p{margin:0 0 17px}.story-body p:last-child{margin-bottom:0}.choice-heading{margin-top:32px;display:flex;gap:12px;align-items:center;font-size:9px;letter-spacing:1.5px;color:var(--dim);text-transform:uppercase}.choice-heading:after{content:'';height:1px;background:var(--line);flex:1}.choices{display:grid;gap:9px;margin-top:13px}.choice{position:relative;display:flex;align-items:center;width:100%;text-align:left;gap:15px;border:1px solid #47615b60;background:#20303570;padding:17px 18px;border-radius:4px;transition:border-color .2s,background .2s,transform .2s}.choice:hover{background:#283b3b;border-color:#c49f5d;transform:translateX(3px)}.choice-num{font:italic 15px var(--serif);color:var(--gold);border:1px solid #8a7b5945;width:27px;height:27px;border-radius:50%;display:grid;place-items:center;flex:none}.choice-label{font-size:13px;color:#e0e4d6;line-height:1.45;flex:1}.choice-label small{display:block;font-size:10px;font-weight:400;color:var(--dim);margin-top:4px}.choice-arrow{font-size:19px;color:#859c8c;font-weight:300}.choice.special{border-color:#d0b27670;background:#b39a5a12}.reader-tools{display:flex;justify-content:space-between;align-items:center;margin-top:22px;gap:16px}.back-choice{background:none;color:var(--dim);padding:5px 0;font-size:11px}.back-choice:hover{color:var(--gold)}.save-status{color:#7e988a;font-size:9px;letter-spacing:.4px}.save-dot{display:inline-block;width:4px;height:4px;background:#92ae8a;border-radius:50%;margin-right:6px}.reveal{animation:reveal .45s ease both}@keyframes reveal{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}.ending-seal{color:var(--gold);font-size:30px;margin:0 0 15px}.ending-caption{color:var(--gold);font:italic 17px/1.5 var(--serif);margin:-10px 0 27px}.ending-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:30px}.ending-counter{font-size:10px;color:var(--dim);margin:13px 0 0}.feedback-card{background:#1e3030;border:1px solid #92a17a1c;border-radius:5px;padding:22px;margin-top:30px}.feedback-card h3{font:400 21px/1.3 var(--serif);margin:0 0 5px}.feedback-card>p{font-size:11px;color:var(--muted);margin:0 0 16px;line-height:1.6}.feedback-options{display:flex;flex-wrap:wrap;gap:8px}.feedback-options button{padding:9px 14px;background:#142426;border:1px solid #49615660;border-radius:3px;font-size:11px;color:#b5c8b6}.feedback-options button[aria-pressed=true]{background:var(--gold);color:#182426;border-color:var(--gold)}.feedback-foot{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:14px}.feedback-foot span{color:var(--dim);font-size:9px}.feedback-foot button{font-size:10px}.clue-toast{color:#cfca9a;font-size:10px;border-left:2px solid #b5a26a;padding-left:10px;margin:0 0 18px}.empty-note{color:var(--dim);font:italic 18px/1.6 var(--serif)}dialog{background:#1a2b2e;color:var(--ink);border:1px solid #6f8d783d;border-radius:8px;width:min(540px,calc(100vw - 36px));padding:40px;max-height:85vh;overflow:auto;box-shadow:0 30px 100px #0008}dialog::backdrop{background:#081216bf;backdrop-filter:blur(5px)}dialog h2{font:400 35px/1.2 var(--serif);margin:8px 0 24px}dialog p{color:var(--muted);font-size:13px;line-height:1.8}.dialog-close{position:absolute;top:12px;right:17px;width:32px;height:32px;background:none;color:var(--muted);font-size:25px}.note-item{padding:18px 0;border-top:1px solid var(--line)}.note-item h3{font:400 21px var(--serif);margin:0 0 6px;color:#d9d6bc}.note-item p{margin:0;font-size:12px}.note-item small{font-size:8px;letter-spacing:1.7px;color:var(--gold);text-transform:uppercase}.dialog-actions{display:flex;gap:20px;align-items:center;margin-top:25px}.toast{position:fixed;bottom:30px;left:50%;transform:translate(-50%,20px);opacity:0;background:#dcd9c5;color:#1b2d29;padding:12px 20px;border-radius:4px;box-shadow:0 8px 30px #0005;font-size:12px;transition:opacity .2s,transform .2s;pointer-events:none;z-index:30;max-width:calc(100vw - 30px);width:max-content}.toast.show{opacity:1;transform:translate(-50%,0)}.sr-only{position:absolute;overflow:hidden;clip:rect(0,0,0,0);width:1px;height:1px;white-space:nowrap}
+@media(min-width:1500px){.landing{min-height:740px}.landing-copy{padding-top:110px}.reader{padding-top:60px;gap:90px}.scene-art{aspect-ratio:4/4.2}.story-body{font-size:19px}}
+@media(max-width:1100px){.journey-strip{margin:0 5.5%}.reader{gap:36px;padding:30px 5.5% 0;grid-template-columns:minmax(250px,.8fr) minmax(370px,1fr)}.story-heading{font-size:38px}.story-body{font-size:17px}.landing-art{right:-12%;width:70%}.landing h1{font-size:78px}.landing-copy{padding-top:80px}.landing{min-height:650px}}
+@media(max-width:760px){.site-header{height:78px;padding:0 6%}.brand{font-size:10px;letter-spacing:2px}.brand-mark{font-size:30px}.brand-sub{font-size:7px}nav{gap:16px}.quiet{font-size:10px}.landing{display:block;min-height:780px}.landing-art{top:280px;height:540px;width:115%;right:-18%;mask-image:linear-gradient(to bottom,transparent,#000 28%);opacity:.78}.landing-copy{padding:48px 7% 50px;max-width:none}.landing h1{font-size:72px;line-height:1.02;margin:24px 0 18px;letter-spacing:-3px}.intro-text{font-size:19px;max-width:310px}.intro-small{font-size:12px;max-width:270px;margin:18px 0 25px}.landing-actions{gap:16px}.chapter-meta{margin-top:19px}.art-caption{bottom:25px;right:5%;font-size:7px}.journey-strip{grid-template-columns:1fr;gap:18px;padding:24px 0}.journey-strip>div{gap:18px}.journey-strip .number{font-size:23px}.journey-strip strong{font-size:11px}.journey-strip p{font-size:10px}.site-footer{font-size:9px;gap:20px;padding:24px 6%}.site-footer button{font-size:9px}.reader{display:block;padding:24px 6% 0;min-height:0}.scene-panel{position:relative;top:0}.scene-art{aspect-ratio:2.15;border-radius:80px 80px 3px 3px;max-height:260px}.scene-art svg{position:absolute;top:-34%;height:155%;width:100%}.scene-coordinates{bottom:15px;left:20px;font-size:7px}.scene-title,.scene-description{display:none}.progress-track{margin-top:17px;padding:16px 0 0;border-top:0}.progress-step{font-size:7px;letter-spacing:.7px}.story-panel{padding:28px 0 35px}.story-heading{font-size:36px;margin:17px 0 22px}.story-body{font-size:18px;line-height:1.65;max-width:none}.eyebrow{font-size:8px;letter-spacing:2px}.choice-heading{margin-top:26px}.choice{padding:16px 14px}.choice-label{font-size:13px}.choice-label small{font-size:10px}.reader-tools{margin-top:19px}.feedback-card{padding:18px}.ending-caption{font-size:16px}dialog{padding:32px 25px}dialog h2{font-size:30px}.ending-actions .primary{width:100%}}
+@media(max-width:370px){.site-header{padding:0 5%}nav{gap:10px}.brand-sub{letter-spacing:1px}.brand{gap:7px}.quiet{font-size:9px}.note-count{width:16px;height:16px;font-size:8px}.landing h1{font-size:62px}.landing{min-height:790px}.chapter-meta{gap:12px}.chapter-meta span+span:before{margin-right:12px}.story-heading{font-size:32px}.progress-step{letter-spacing:0;font-size:7px}.feedback-options button{padding:8px 10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.primary:hover,.choice:hover{transform:none}}
+
+</style>
+
+</head>
+<body>
+  <a class="skip" href="#main">Skip to story</a>
+  <header class="site-header">
+    <a href="#" data-action="home" class="brand" aria-label="The Last Lantern home"><span class="brand-mark" aria-hidden="true">✧</span><span>ECHO TRAILS<span class="brand-sub">INTERACTIVE STORIES</span></span></a>
+    <nav aria-label="Story tools"><button class="quiet" data-action="sound" id="sound-button" aria-pressed="false"><span aria-hidden="true">♪</span> Sound off</button><button class="quiet" data-action="notes">Field notes <span class="note-count" id="note-count">0</span></button></nav>
+  </header>
+  <main id="main" tabindex="-1"></main>
+  <footer class="site-footer"><span>A little story. A choice that stays with you.</span><button data-action="about">About this chapter</button></footer>
+  <dialog id="dialog"><div id="dialog-content"></div><button class="dialog-close" aria-label="Close dialog" data-action="close-dialog">×</button></dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <script type="module">
+// story.js
+const story = {
+  id: 'last-lantern-v1',
+  title: 'The Last Lantern',
+  nodes: {
+    arrival: {
+      chapter: '01',
+      kicker: 'Bracken Station · before dawn',
+      title: 'A parcel that ticks',
+      art: 'station',
+      paragraphs: [
+        'Your final delivery weighs almost nothing. Inside its paper wrapping, something ticks once whenever you stop walking.',
+        'At Bracken Station, night hangs above the platform on a clock with no minute hand. The Midnight Post waits beside a single lamp. Beyond the fence, the valley is entirely dark.',
+        'The stationkeeper checks your courier badge. “Last service. At dawn we close for good. Two passengers, two destinations. The driver has time for one branch before taking the train to the depot.”',
+        'She sees the parcel and straightens her collar. “Oh. They remembered.”',
+      ],
+      choices: [
+        { id: 'meet', label: 'Meet the passengers', detail: 'Find out who is waiting, and why.', to: 'gardener' },
+      ],
+    },
+    gardener: {
+      chapter: '02',
+      kicker: 'The northern branch',
+      title: 'An orchard in a box',
+      art: 'garden',
+      paragraphs: [
+        'Mira sits beside a wooden box with air holes. Warm green shoots press against them.',
+        '“An orchard in a box,” she says. “The old trees washed away last winter. These are their cuttings.” She has written each tree’s name on a little strip of cloth.',
+        'Her little brother has waited up to plant the first one with her at sunrise. Orchard Halt is twelve miles along the northern rail.',
+        '“He’ll forgive me if I’m late.” She turns the box so the shoots face the lamp. “That’s almost worse.”',
+      ],
+      choices: [
+        { id: 'promise-mira', label: '“I’ll try to get you home.”', detail: 'Give Mira your word before you know every option.', to: 'clockmaker', effects: { promise: 'mira' } },
+        { id: 'listen-first', label: '“Let me understand our options first.”', detail: 'Keep your promise unspoken for now.', to: 'clockmaker' },
+      ],
+    },
+    clockmaker: {
+      chapter: '03',
+      kicker: 'The southern branch',
+      title: 'A moon running late',
+      art: 'clock',
+      paragraphs: [
+        'Oren has a clock face tucked under one arm. Its painted moon wears an expression of mild surprise.',
+        '“For the harbor clock,” he explains. “My daughter made the moon. I’m supposed to fit it before her first morning on the ferry.”',
+        'Harbor Steps lies fourteen miles down the southern rail. He notices Mira’s box. “Her seedlings can have my seat.”',
+        'You explain that the driver can reach only one destination before the depot. “Ah.” Oren polishes a perfectly clean patch of brass. “I was hoping it was a seating problem.”',
+      ],
+      choices: [
+        { id: 'promise-oren', label: '“I’ll try to get you home.”', detail: 'Give Oren your word.', to: 'parcel', requires: { promise: null }, effects: { promise: 'oren' } },
+        { id: 'open-delivery', label: '“Let’s examine that delivery.”', detail: 'There is still a parcel to deliver.', to: 'parcel' },
+      ],
+    },
+    parcel: {
+      chapter: '04',
+      kicker: 'The final delivery',
+      title: 'For someone going home',
+      art: 'lantern',
+      paragraphs: [
+        'The stationkeeper, Nessa, cuts the string with a ticket punch. Inside is a beautiful walking lantern. Underneath lies a card:',
+        '“For forty years of getting everyone else home. Your next journey is yours.”',
+        'Nessa reads it twice. “My retirement present,” she says. “I thought it would be a commemorative plate.”',
+        'The lantern ticks as she lifts it. A tiny mechanism inside turns the wick toward the glass. Its handle fits her hand as though somebody measured it.',
+        '“Enough oil for a long walk,” she adds. Then, more quietly: “I used to enjoy those.”',
+      ],
+      choices: [
+        { id: 'look-around', label: '“There may be another way out.”', detail: 'Look beyond the railway.', to: 'explore' },
+      ],
+    },
+    explore: {
+      chapter: '05',
+      kicker: 'Forty minutes before sunrise',
+      title: 'The station has other doors',
+      art: 'station',
+      paragraphs: [
+        'Nessa gives you the station keys. Forty minutes remain before sunrise. The driver is checking the brakes; you have time to look around.',
+        'The office door bears an old walking-tour emblem. Beyond the platform fence, a narrow gate rattles softly.',
+        '“We mostly stopped using those when the railway opened,” Nessa says. “Funny how a new way somewhere can make you forget the old one.”',
+        { when: { mapRead: true }, text: 'You know the old walking route now: across the gorge, through the orchard, then down to the harbor.' },
+        { when: { bridgeChecked: true }, text: 'You have checked the bridge. Its deck is sound, and the gate stands open.' },
+      ],
+      choices: [
+        { id: 'visit-map', label: 'Check the office maps', detail: 'Find out where the old paths lead.', to: 'map_room', unless: { mapRead: true } },
+        { id: 'visit-bridge', label: 'Inspect the gate', detail: 'See whether the footbridge is passable.', to: 'footbridge', unless: { bridgeChecked: true } },
+        { id: 'return-keeper', label: 'Return to Nessa', detail: 'You can come back to investigate before choosing.', to: 'keeper' },
+      ],
+    },
+    map_room: {
+      chapter: '06',
+      kicker: 'Under the railway map',
+      title: 'The short way round',
+      art: 'map',
+      paragraphs: [
+        'The newest rail map shows a great horseshoe around the valley: Orchard Halt at one end, Harbor Steps at the other.',
+        'Underneath it, an older walking map shows something much simpler. A footbridge crosses the gorge behind the station. The orchard is fifteen minutes away on foot. Steps from its lower gate reach the harbor ten minutes later.',
+        'The railway curves around the gorge. Feet can go over it, visiting both places before dawn.',
+        'You trace the bridge in pencil. Someone has written beside it: “Bring a lamp. Unlit after the fork.”',
+      ],
+      choices: [
+        { id: 'remember-map', label: 'Keep the route in mind', detail: 'The map shows a way to reach both homes.', to: 'explore', effects: { mapRead: true } },
+      ],
+    },
+    footbridge: {
+      chapter: '07',
+      kicker: 'Beyond the platform fence',
+      title: 'What the dark was hiding',
+      art: 'bridge',
+      paragraphs: [
+        'The gate opens onto a stone bridge. Ferns grow in its joints, but the deck is solid. You cross as far as the middle, testing every step.',
+        'On the far bank, two signposts point into darkness. You cannot read them from here.',
+        'A cloud shifts. For a moment you see the orchard windows above you and the harbor lights below. Both are startlingly close.',
+        'You return and wedge the gate open. The path needs light, but it is passable. Across the gorge, a kitchen window brightens.',
+      ],
+      choices: [
+        { id: 'confirm-bridge', label: 'Return with what you found', detail: 'The bridge can carry your little group.', to: 'explore', effects: { bridgeChecked: true } },
+      ],
+    },
+    keeper: {
+      chapter: '08',
+      kicker: 'The last shift',
+      title: 'One more person waiting',
+      art: 'lantern',
+      paragraphs: [
+        'Nessa is taking the station clock off its hook. “Everyone thinks I live upstairs,” she says. “That’s the linen cupboard.”',
+        'Her home is a small room above the harbor bakery. She hasn’t seen it in daylight for years. “I could walk with them,” she says, looking at her present. “If there’s a safe route.”',
+        'Inside the lantern, its clockwork spring turns the wick. Someone made it for a woman who would finally have time to walk.',
+        'She hands you the train’s destination wheel. “The driver is waiting for our signal. Where do we go?”',
+      ],
+      choices: [
+        { id: 'consider-route', label: 'Decide how we leave', detail: 'Choose the journey you are willing to make.', to: 'decision' },
+      ],
+    },
+    decision: {
+      chapter: '09',
+      kicker: 'The departure signal',
+      title: 'Choose a way home',
+      art: 'station',
+      paragraphs: [
+        'The wheel has two brass stops: ORCHARD and HARBOR. Either rail route connects with the dawn mail service. Your through-ticket will keep your next delivery on time.',
+        'Walking means missing that connection. You would need the morning coach, and your next customer would have to wait.',
+        { when: { promise: 'mira' }, text: 'You remember your promise to Mira. The cloth labels on her seedlings flutter in the wind.' },
+        { when: { promise: 'oren' }, text: 'You remember your promise to Oren. He is holding the painted moon carefully by its edges.' },
+        { when: { mapRead: true, bridgeChecked: true }, text: 'You have found a sound bridge and a route past both homes. With Nessa’s lantern, you could all walk together.' },
+      ],
+      choices: [
+        { id: 'choose-orchard', label: 'Take Mira to the orchard by train', detail: 'Reach the planting at sunrise and keep your mail connection. Oren waits.', to: 'orchard_end' },
+        { id: 'choose-harbor', label: 'Take Oren to the harbor by train', detail: 'Bring the painted moon before dawn and keep your mail connection. Mira waits.', to: 'harbor_end' },
+        { id: 'choose-walk', label: 'Miss my train and walk them both home', detail: 'Visit both homes before sunrise. Your next delivery will be late.', to: 'walking', requires: { mapRead: true, bridgeChecked: true } },
+        { id: 'investigate-again', label: 'Check the station once more', detail: 'A walking route needs both a map and a sound bridge.', to: 'explore', unless: { mapRead: true, bridgeChecked: true } },
+      ],
+    },
+    walking: {
+      chapter: '10',
+      kicker: 'Across the gorge',
+      title: 'The sound beneath the rails',
+      art: 'bridge',
+      paragraphs: [
+        'You fold your through-ticket into a tiny boat and leave it on the office desk. It was a useful ticket. You hope it makes a good boat.',
+        'Nessa lights her lantern. Mira takes the seedlings. Oren carries the clock face so the moon can watch where you are going.',
+        'The driver whistles once and takes the empty train toward the depot. For the first time tonight, you hear the stream beneath the bridge.',
+        'You lift Mira’s box. All four of you follow the orchard path, keeping close to Nessa’s light.',
+      ],
+      choices: [
+        { id: 'follow-birdsong', label: 'Keep walking toward the first birdsong', detail: 'The orchard gate is just ahead.', to: 'walking_end' },
+      ],
+    },
+    orchard_end: {
+      chapter: '11',
+      kicker: 'Orchard Halt',
+      title: 'A Place to Grow',
+      art: 'garden',
+      paragraphs: [
+        'The train reaches Orchard Halt beneath a sky the color of a plum. A small boy waits in boots much too large for him.',
+        'Mira passes him a cutting. Together they kneel beside the first empty tree stake.',
+        'Back at Bracken, Oren and Nessa share tea until daylight makes the footpath visible. His daughter will see her painted moon in the afternoon.',
+        { when: { promise: 'mira' }, text: 'Mira raises one muddy hand as you leave. You kept your promise; she has a tree to plant.' },
+        { when: { promise: 'oren' }, text: 'You write Oren an apology on the back of your delivery receipt. You could not keep your promise. He deserves to hear that from you.' },
+        'You catch the dawn mail service. Behind you, the first new orchard casts very small shadows.',
+      ],
+      ending: { id: 'orchard', title: 'A Place to Grow', caption: 'Mira plants at sunrise. Oren’s painted moon will rise later.' },
+    },
+    harbor_end: {
+      chapter: '12',
+      kicker: 'Harbor Steps',
+      title: 'The Moon on Time',
+      art: 'clock',
+      paragraphs: [
+        'At Harbor Steps, Oren climbs the clock tower while his daughter waits below in a new ferry coat.',
+        'When the clock strikes dawn, her painted moon rises into its proper place. She laughs so loudly that the first passengers look up.',
+        'Nessa chose to stay at Bracken with Mira. The bakery can wait a little longer. Together they find a sunny windowsill for the seedlings before walking to the orchard after sunrise.',
+        { when: { promise: 'oren' }, text: 'Oren catches your eye from the tower and taps the moon’s rim. You kept your promise.' },
+        { when: { promise: 'mira' }, text: 'You write Mira an apology on the back of your delivery receipt. You could not keep your promise. She deserves to hear that from you.' },
+        'You catch the dawn mail service as the ferry crosses the silver water.',
+      ],
+      ending: { id: 'harbor', title: 'The Moon on Time', caption: 'Oren meets the morning ferry. Mira’s orchard will begin later.' },
+    },
+    walking_end: {
+      chapter: '13',
+      kicker: 'The bakery window',
+      title: 'The Way Between',
+      art: 'dawn',
+      paragraphs: [
+        'Mira’s brother opens the orchard gate before you knock. You help them plant the first cutting while the horizon is still gray.',
+        'Then you hurry together down the orchard steps. Oren has just enough time to fit the moon before the harbor clock announces morning. His daughter waves from the ferry.',
+        { when: { promise: 'mira' }, text: 'You kept your promise to Mira. It took a different route than either of you expected.' },
+        { when: { promise: 'oren' }, text: 'You kept your promise to Oren. It took a different route than either of you expected.' },
+        'At the bakery, Nessa has taken off her railway cap. Four breakfasts wait beside the window. Your next customer needs an explanation, and the morning coach needs a fare.',
+        'Nessa winds the little lantern. In daylight it ticks quite plainly. “It was never meant for the station,” she says, and sets it between the cups.',
+      ],
+      ending: { id: 'walk', title: 'The Way Between', caption: 'Both passengers reach home before dawn. Your own journey takes longer.' },
+    },
+  },
+};
+
+
+// art.js
+function pine(x, y, scale, fill) {
+  return `<g transform="translate(${x} ${y}) scale(${scale})" fill="${fill}"><path d="M0 -140L-30 -83H-20L-45 -38H-28L-58 12H58L28 -38H45L20 -83H30Z"/><path d="M-5 5H5V55H-5Z"/></g>`;
+}
+
+function sceneArt(kind = 'station') {
+  const dawn = kind === 'dawn';
+  const stars = Array.from({length:38},(_,i)=>`<circle cx="${36+(i*113)%700}" cy="${35+(i*67)%355}" r="${i%4===0?1.4:.7}" fill="#e4d2a0" opacity="${.25+(i%5)*.12}"/>`).join('');
+  const woods = [0,1,2,3,4,5,6,7,8,9].map((i)=>pine(i*92-30,360+(i%3)*25,.85+(i%4)*.12,'#183b3e')).join('');
+  const frontWoods = pine(72,495,1.85,'#0b262d')+pine(700,478,2.2,'#0b262d')+pine(-15,640,2.7,'#0a2029')+pine(790,660,2.8,'#0a2029');
+  const lamp = `<g transform="translate(525 415)"><path d="M0 0V160M-16 160H16M-12 168H12" stroke="#12292d" stroke-width="8"/><path d="M0 0Q0 -29 30 -29H38" fill="none" stroke="#172d30" stroke-width="6"/><circle cx="34" cy="-6" r="85" fill="url(#glow)"/><path d="M21 -25L19 7H49L47 -25Z" fill="#ecc270"/><path d="M19 -27H49L42 -39H27ZM16 8H52L44 16H25Z" fill="#173035"/><path d="M34 -25V7" stroke="#9c794c" stroke-width="2"/></g>`;
+  const station = `<g transform="translate(155 360)"><path d="M0 168V58L106 -3L226 58V168Z" fill="#28403f"/><path d="M-20 66L105 -15L246 66L238 78L105 6L-10 78Z" fill="#10272e"/><path d="M25 92H73V142H25ZM149 91H197V142H149Z" fill="#e2b769"/><path d="M49 92V142M25 116H73M173 91V142M149 116H197" stroke="#5b654d" stroke-width="5"/><path d="M91 80H132V168H91Z" fill="#112a30"/><path d="M101 94H123V126H101Z" fill="#cfa863"/><circle cx="123" cy="143" r="2" fill="#e7bc6e"/><path d="M24 151H72M148 151H198" stroke="#789282" stroke-width="3"/><path d="M84 45H142V66H84Z" fill="#122b2f"/><text x="113" y="59" fill="#b4bba2" font-family="Georgia,serif" font-size="9" letter-spacing="2" text-anchor="middle">BRACKEN</text><path d="M185 24V-25H207V39Z" fill="#183238"/><path d="M183 -25H209" stroke="#0e262e" stroke-width="7"/></g>`;
+  const train = `<g transform="translate(323 518)"><path d="M20 15H248V77H6V40Q6 15 20 15Z" fill="#16343a"/><path d="M22 12H242L226 0H38Z" fill="#0c252f"/><path d="M30 28H64V52H30ZM80 28H114V52H80ZM130 28H164V52H130ZM180 28H214V52H180Z" fill="#cfb66b" opacity=".9"/><path d="M16 65H244" stroke="#56746c" stroke-width="3"/><circle cx="45" cy="79" r="13" fill="#0a1f28"/><circle cx="207" cy="79" r="13" fill="#0a1f28"/><circle cx="45" cy="79" r="5" fill="#536860"/><circle cx="207" cy="79" r="5" fill="#536860"/><path d="M256 76H314V44L302 19H264V62H252Z" fill="#102b34"/><path d="M275 30H298V49H275Z" fill="#ead08e"/><path d="M306 27V3H320V48" fill="#153139"/><circle cx="285" cy="79" r="12" fill="#091e27"/><circle cx="312" cy="79" r="9" fill="#091e27"/><circle cx="326" cy="56" r="6" fill="#f1d295"/><path d="M306 -5C265 -37 354 -46 310 -78C294 -90 306 -109 337 -124" fill="none" stroke="#b3c0a9" opacity=".12" stroke-width="17" stroke-linecap="round"/></g>`;
+  const lantern = `<g transform="translate(315 383)"><ellipse cx="66" cy="125" rx="129" ry="145" fill="url(#glow)"/><path d="M23 13V-25Q65 -73 109 -25V13" fill="none" stroke="#8c997d" stroke-width="8"/><path d="M12 31H120L105 8H27Z" fill="#74917c"/><path d="M22 35L13 171H120L110 35Z" fill="#e1c67f"/><path d="M33 43L28 160H105L98 43Z" fill="url(#warm)"/><path d="M66 45V160M22 100H111" stroke="#7a7b56" stroke-width="6"/><path d="M7 175H125L113 194H20Z" fill="#6b806c"/><path d="M52 153Q41 120 65 100Q89 126 77 153" fill="#fff4bd"/><path d="M-25 204H154" stroke="#273f3e" stroke-width="9"/></g>`;
+  const bridge = `<path d="M123 514Q380 425 654 475L678 507Q380 462 101 555Z" fill="#5e8276"/><path d="M109 554Q380 466 677 507V560L591 550Q547 506 511 550L441 554Q390 505 347 569L268 586Q213 541 176 612L109 634Z" fill="#314f4d"/><path d="M125 505V470M192 487V452M261 470V435M333 459V425M405 455V421M478 456V422M552 461V427M623 470V436" stroke="#426961" stroke-width="5"/><path d="M124 469Q380 382 646 443" fill="none" stroke="#5a7c6d" stroke-width="5"/>`;
+  const clock = `<g transform="translate(292 330)"><path d="M0 280V65L88 0L176 65V280Z" fill="#2e4847"/><path d="M-10 69L88 -10L186 69" fill="none" stroke="#0d2931" stroke-width="14"/><circle cx="88" cy="102" r="58" fill="#c6bd85"/><circle cx="88" cy="102" r="50" fill="#203d40"/><path d="M88 65V102L112 112" fill="none" stroke="#e6cf8b" stroke-width="4" stroke-linecap="round"/><circle cx="88" cy="102" r="5" fill="#e6cf8b"/><path d="M80 181H96V251H80" fill="#dfbc72"/><path d="M60 47Q88 29 116 47" stroke="#6c8977" stroke-width="3" fill="none"/></g>`;
+  const garden = `<g>${[0,1,2].map((i)=>`<path d="M${205+i*145} 596V433" stroke="#54685a" stroke-width="10"/><circle cx="${205+i*145}" cy="420" r="63" fill="#3d6452"/><circle cx="${179+i*145}" cy="403" r="47" fill="#52745c"/><circle cx="${226+i*145}" cy="383" r="40" fill="#5f7e5d"/><circle cx="${220+i*145}" cy="443" r="6" fill="#d6a36c"/><circle cx="${184+i*145}" cy="400" r="5" fill="#d6a36c"/>`).join('')}<path d="M145 601L625 581M144 628L625 607" stroke="#223e3e" stroke-width="11"/>${[160,248,336,424,512,600].map(x=>`<path d="M${x} 574V654" stroke="#2d4c46" stroke-width="9"/>`).join('')}<path d="M355 713Q365 661 394 636M369 674Q332 677 332 647Q368 642 369 674M382 650Q383 619 410 620Q416 648 382 650" fill="#87a372" stroke="#698965" stroke-width="3"/></g>`;
+  const map = `<g transform="translate(190 330) rotate(-7 170 150)"><path d="M0 0L113 12L226 0L340 12V298L226 286L113 298L0 286Z" fill="#b8b98d"/><path d="M113 12V298M226 0V286" stroke="#6a826d" opacity=".55" stroke-width="2"/><path d="M20 84Q120 114 140 49T316 109M14 220Q103 157 193 199T322 217" fill="none" stroke="#779783" stroke-width="22"/><path d="M52 256Q106 201 156 135T282 60" fill="none" stroke="#526854" stroke-width="3" stroke-dasharray="8 7"/><circle cx="52" cy="256" r="9" fill="#405e51"/><circle cx="156" cy="135" r="9" fill="#405e51"/><circle cx="282" cy="60" r="9" fill="#405e51"/><path d="M260 240V274M243 257H277M250 247L270 267M270 247L250 267" stroke="#526854" stroke-width="2"/><path d="M25 34H81M25 44H62" stroke="#71816b" stroke-width="3"/></g>`;
+  let feature = station+train+lamp;
+  if(kind==='lantern')feature=lantern;
+  if(kind==='bridge')feature=bridge+`<path d="M365 572Q411 615 370 677T393 800" fill="none" stroke="#42767b" stroke-width="45" opacity=".5"/>`;
+  if(kind==='clock')feature=clock+lamp;
+  if(kind==='garden')feature=garden;
+  if(kind==='map')feature=map;
+  if(dawn)feature=`<g transform="translate(130 340)"><path d="M0 250V65L119 0L240 65V250" fill="#475e4e"/><path d="M-14 70L119 -14L254 70" fill="none" stroke="#213d3e" stroke-width="14"/><path d="M26 105H213V221H26" fill="#d5b77a"/><path d="M88 105V221M150 105V221M26 160H213" stroke="#456054" stroke-width="8"/><path d="M22 76H215V99H22" fill="#243e3b"/><text x="120" y="92" font-size="11" font-family="Georgia,serif" letter-spacing="4" fill="#b7b998" text-anchor="middle">DAYBREAK</text></g><path d="M445 591Q526 533 658 547" fill="none" stroke="#acb98a" opacity=".4" stroke-width="5"/>${lamp}`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="${dawn?'A quiet bakery at sunrise':'An illustrated midnight valley with '+({station:'a glowing railway station',garden:'a sleeping orchard',clock:'a moon-faced clock tower',lantern:'a warm walking lantern',map:'an old walking map',bridge:'a stone footbridge'}[kind]||'a railway station')}"><defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="${dawn?'#527b79':'#0d242f'}"/><stop offset=".6" stop-color="${dawn?'#bea879':'#305653'}"/><stop offset="1" stop-color="#183a3c"/></linearGradient><radialGradient id="glow"><stop stop-color="#eac475" stop-opacity=".55"/><stop offset=".45" stop-color="#eac475" stop-opacity=".12"/><stop offset="1" stop-color="#eac475" stop-opacity="0"/></radialGradient><linearGradient id="warm" x2="0" y2="1"><stop stop-color="#af9a59"/><stop offset="1" stop-color="#ffdd8b"/></linearGradient><linearGradient id="fade" x2="0" y2="1"><stop stop-color="#10252d" stop-opacity="0"/><stop offset="1" stop-color="#0c2029"/></linearGradient></defs><rect width="760" height="800" fill="url(#sky)"/>${dawn?'':stars}<circle cx="512" cy="146" r="86" fill="url(#glow)"/><circle cx="512" cy="146" r="30" fill="${dawn?'#f4ddb0':'#c8d4b3'}" opacity=".85"/>${dawn?'':'<circle cx="524" cy="135" r="29" fill="#16353d"/>'}<path d="M0 340L145 191L219 269L313 191L461 333L566 235L760 354V590H0Z" fill="#214345"/><path d="M0 417L160 310L273 394L421 279L576 392L685 318L760 368V630H0Z" fill="#234c49"/>${woods}<path d="M-20 464Q160 399 355 468T790 457V800H0Z" fill="#1e4541"/><path d="M-20 561Q222 475 418 555T790 511V800H0Z" fill="#193a3b"/><path d="M0 494Q200 451 425 493T760 465" stroke="#8aaa88" opacity=".1" stroke-width="25" fill="none"/><path d="M0 680Q250 567 760 639M0 700Q250 587 760 659" stroke="#648276" opacity=".4" stroke-width="3" fill="none"/>${feature}${frontWoods}<rect y="670" width="760" height="130" fill="url(#fade)"/><g fill="#a5b68c" opacity=".35">${Array.from({length:13},(_,i)=>`<circle cx="${80+(i*97)%610}" cy="${620+(i*29)%130}" r="1.2"/>`).join('')}</g></svg>`;
+}
+
+
+// engine.js
+
+function createRun(now = Date.now(), id = `journey-${now}`) {
+  return { version: 1, storyId: story.id, id, nodeId: 'arrival', flags: { promise: null, mapRead: false, bridgeChecked: false }, path: [], startedAt: now, completedAt: null };
+}
+
+function matches(flags, condition) {
+  return !condition || Object.entries(condition).every(([key, value]) => flags[key] === value);
+}
+
+function currentNode(run) {
+  return story.nodes[run.nodeId];
+}
+
+function availableChoices(run) {
+  return (currentNode(run).choices || []).filter(choice => matches(run.flags, choice.requires) && (!choice.unless || !matches(run.flags, choice.unless)));
+}
+
+function paragraphsFor(run) {
+  return currentNode(run).paragraphs.filter(paragraph => typeof paragraph === 'string' || matches(run.flags, paragraph.when)).map(paragraph => typeof paragraph === 'string' ? paragraph : paragraph.text);
+}
+
+function choose(run, choiceId, now = Date.now()) {
+  const choice = availableChoices(run).find(item => item.id === choiceId);
+  if (!choice || !story.nodes[choice.to]) throw new Error('This choice is not available.');
+  return { ...run, nodeId: choice.to, flags: { ...run.flags, ...choice.effects }, path: [...run.path, { from: run.nodeId, choiceId }], completedAt: story.nodes[choice.to].ending ? now : null };
+}
+
+function restoreRun(value, now = Date.now()) {
+  if (!value || value.version !== 1 || value.storyId !== story.id || !Array.isArray(value.path) || value.path.length > 60 || typeof value.id !== 'string' || value.id.length > 100) return null;
+  if (!Number.isFinite(value.startedAt) || value.startedAt <= 0) return null;
+  try {
+    let restored = createRun(Math.min(value.startedAt, now), value.id);
+    for (const step of value.path) {
+      if (step.from !== restored.nodeId) return null;
+      restored = choose(restored, step.choiceId, now);
+    }
+    if (currentNode(restored).ending && Number.isFinite(value.completedAt)) restored.completedAt = Math.min(now, Math.max(restored.startedAt, value.completedAt));
+    return restored;
+  } catch { return null; }
+}
+
+function rewind(run) {
+  return restoreRun({ ...run, path: run.path.slice(0, -1), completedAt: null });
+}
+
+function makePlaytest(run, feedback, endings, now = Date.now()) {
+  return { format: 'last-lantern-playtest-v1', exportedAt: new Date(now).toISOString(), completed: Boolean(currentNode(run).ending), ending: currentNode(run).ending?.id || null, endingsFound: [...new Set(endings)], choiceCount: run.path.length, elapsedSeconds: Math.max(0, Math.round(((run.completedAt || now) - run.startedAt) / 1000)), discoveries: { map: run.flags.mapRead, bridge: run.flags.bridgeChecked }, promise: run.flags.promise, choices: run.path, wantsChapterTwo: ['yes','maybe','no'].includes(feedback) ? feedback : null };
+}
+
+
+// app.js
+
+const STORAGE_KEY = 'last-lantern:playtest:v1';
+const main = document.querySelector('#main');
+const dialog = document.querySelector('#dialog');
+const sceneInfo = {
+  station: ['Bracken Station', 'Where every journey pauses for a moment.', 'THE VALLEY · LAST SERVICE'],
+  garden: ['The northern orchard', 'Small things, waiting for a new beginning.', 'ORCHARD HALT · NORTH'],
+  clock: ['The painted moon', 'Some gifts are worth arriving on time for.', 'HARBOR STEPS · SOUTH'],
+  lantern: ['A light of your own', 'Forty years of getting everyone else home.', 'BRACKEN · THE FINAL DELIVERY'],
+  map: ['The old walking way', 'A little distance looks different on paper.', 'THE STATION OFFICE'],
+  bridge: ['Across the gorge', 'The stream has been here all along.', 'THE OLD FOOTBRIDGE'],
+  dawn: ['The first morning', 'There is still time for a warm breakfast.', 'HARBOR · DAYBREAK'],
+};
+let storageWorks = true;
+let soundOn = false;
+let audioContext;
+let toastTimer;
+let state = { run: null, endings: [], feedback: {} };
+try {
+  const raw = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+  if (raw && typeof raw === 'object') {
+    state.run = restoreRun(raw.run);
+    state.endings = Array.isArray(raw.endings) ? [...new Set(raw.endings.filter(id => ['orchard', 'harbor', 'walk'].includes(id)))] : [];
+    if (state.run && ['yes', 'maybe', 'no'].includes(raw.feedback?.[state.run.id])) {
+      state.feedback[state.run.id] = raw.feedback[state.run.id];
+    }
+  }
+} catch { storageWorks = false; }
+
+function esc(value) {
+  return String(value).replace(/[&<>"']/g, char => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[char]));
+}
+function save() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); storageWorks = true; }
+  catch { storageWorks = false; }
+}
+function toast(message) {
+  clearTimeout(toastTimer);
+  const el = document.querySelector('#toast');
+  el.textContent = message;
+  el.classList.add('show');
+  toastTimer = setTimeout(() => el.classList.remove('show'), 3200);
+}
+function focusMain() {
+  main.focus({ preventScroll: true });
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+function updateNotes() {
+  document.querySelector('#note-count').textContent = Number(Boolean(state.run?.flags.mapRead)) + Number(Boolean(state.run?.flags.bridgeChecked));
+}
+function chime() {
+  if (!soundOn || !audioContext) return;
+  void audioContext.resume();
+  const oscillator = audioContext.createOscillator();
+  const gain = audioContext.createGain();
+  const at = audioContext.currentTime;
+  oscillator.type = 'sine';
+  oscillator.frequency.setValueAtTime(440, at);
+  oscillator.frequency.exponentialRampToValueAtTime(660, at + .15);
+  gain.gain.setValueAtTime(.0001, at);
+  gain.gain.exponentialRampToValueAtTime(.035, at + .03);
+  gain.gain.exponentialRampToValueAtTime(.0001, at + .7);
+  oscillator.connect(gain).connect(audioContext.destination);
+  oscillator.start(at);
+  oscillator.stop(at + .72);
+}
+function track(eventName) {
+  if (typeof window.gtag === 'function') window.gtag('event', eventName);
+}
+function showLanding(focus = false) {
+  history.replaceState(null, '', '#');
+  document.title = 'The Last Lantern · An Echo Trails Story';
+  main.innerHTML = `
+    <section class="landing">
+      <div class="landing-art">${sceneArt('station')}</div>
+      <div class="landing-copy reveal">
+        <div class="eyebrow">An Echo Trails short story</div>
+        <h1>The Last<br><em>Lantern</em></h1>
+        <p class="intro-text">One midnight station.<br>Three ways home.</p>
+        <p class="intro-small">A final delivery. Two waiting passengers.<br>Before the sun rises, someone has to<br>choose a way forward.</p>
+        <div class="landing-actions">
+          <button class="primary" data-action="${state.run ? 'continue' : 'begin'}">${state.run ? (currentNode(state.run).ending ? 'Revisit your ending' : 'Continue your story') : 'Begin your story'} <span class="arrow" aria-hidden="true">→</span></button>
+          ${state.run ? '<button class="text-link" data-action="restart">Start again</button>' : ''}
+        </div>
+        <div class="chapter-meta"><span>6–10 MINUTES</span><span>3 ENDINGS</span><span>YOUR CHOICES</span></div>
+      </div>
+      <div class="art-caption">BRACKEN STATION · THE LAST SERVICE</div>
+    </section>
+    <section class="journey-strip" aria-label="About the experience">
+      <div><span class="number">01</span><div><strong>A small world to step into</strong><p>Meet the people waiting for the last train.</p></div></div>
+      <div><span class="number">02</span><div><strong>Look a little closer</strong><p>There may be more than one way home.</p></div></div>
+      <div><span class="number">03</span><div><strong>Leave with your own ending</strong><p>No score to chase. A choice to remember.</p></div></div>
+    </section>`;
+  updateNotes();
+  if (focus) focusMain();
+}
+function progressFor(node) {
+  if (node.ending) return 3;
+  if (['decision', 'walking'].includes(state.run.nodeId)) return 2;
+  if (['explore', 'map_room', 'footbridge', 'keeper'].includes(state.run.nodeId)) return 1;
+  return 0;
+}
+function renderStory(focus = true) {
+  if (!state.run) { showLanding(focus); return; }
+  history.replaceState(null, '', '#story');
+  const node = currentNode(state.run);
+  const info = sceneInfo[node.art];
+  const progress = progressFor(node);
+  document.title = `${node.title} · The Last Lantern`;
+  const feedback = state.feedback[state.run.id];
+  main.innerHTML = `
+    <article class="reader">
+      <aside class="scene-panel" aria-label="Scene illustration">
+        <div class="scene-art">${sceneArt(node.art)}<div class="scene-overlay"></div><span class="scene-coordinates">${info[2]}</span></div>
+        <h2 class="scene-title">${info[0]}</h2><p class="scene-description">${info[1]}</p>
+        <div class="progress-track" aria-label="Story progress">${['Arrival', 'Discoveries', 'Decision', 'Ending'].map((label, i) => `<span class="progress-step ${i === progress ? 'active' : i < progress ? 'done' : ''}" ${i === progress ? 'aria-current="step"' : ''}>${label}</span>`).join('')}</div>
+      </aside>
+      <section class="story-panel reveal" aria-labelledby="story-title">
+        ${node.ending ? '<div class="ending-seal" aria-hidden="true">✧</div>' : ''}
+        <div class="eyebrow">${esc(node.ending ? 'Your ending · ' + node.kicker : node.kicker)}</div>
+        <h1 class="story-heading" id="story-title">${esc(node.title)}</h1>
+        ${node.ending ? `<p class="ending-caption">${esc(node.ending.caption)}</p>` : ''}
+        <div class="story-body">${paragraphsFor(state.run).map(p => `<p>${esc(p)}</p>`).join('')}</div>
+        ${node.ending ? `
+          <div class="ending-actions"><button class="primary" data-action="restart">Find another way <span class="arrow" aria-hidden="true">↺</span></button><button class="text-link" data-action="home">Back to the station</button></div>
+          <p class="ending-counter">${state.endings.length} of 3 endings found</p>
+          <section class="feedback-card" aria-labelledby="feedback-title">
+            <h3 id="feedback-title">Would you play Chapter Two?</h3>
+            <p>Your first impression helps shape the next story.</p>
+            <div class="feedback-options" role="group" aria-label="Would you play Chapter Two?">${[['yes','Yes, I’d come back'],['maybe','Maybe'],['no','Not for me']].map(([value,label])=>`<button data-action="feedback" data-value="${value}" aria-pressed="${feedback === value}">${label}</button>`).join('')}</div>
+            <div class="feedback-foot"><button class="text-link" data-action="export">Download playtest notes ↓</button><span>Saved on this device. Nothing is sent.</span></div>
+          </section>` : `
+          <div class="choice-heading">${availableChoices(state.run).length === 1 ? 'Your next step' : 'What will you do?'}</div>
+          <div class="choices">${availableChoices(state.run).map((choice,i)=>`<button class="choice ${choice.id === 'choose-walk' ? 'special' : ''}" data-action="choose" data-choice="${choice.id}"><span class="choice-num" aria-hidden="true">${i+1}</span><span class="choice-label">${esc(choice.label)}<small>${esc(choice.detail || '')}</small></span><span class="choice-arrow" aria-hidden="true">→</span></button>`).join('')}</div>`}
+        <div class="reader-tools">
+          ${state.run.path.length ? '<button class="back-choice" data-action="back">← Previous choice</button>' : '<span></span>'}
+          <span class="save-status"><span class="save-dot"></span>${storageWorks ? 'Saved on this device' : 'Session only · storage unavailable'}</span>
+        </div>
+      </section>
+    </article>`;
+  updateNotes();
+  if (focus) focusMain();
+}
+function newJourney() {
+  const hadJourney = Boolean(state.run);
+  state.run = createRun(Date.now(), globalThis.crypto?.randomUUID?.() || `journey-${Date.now()}`);
+  state.feedback = {};
+  save();
+  track(hadJourney ? 'story_restart' : 'story_start');
+  renderStory();
+}
+function openDialog(content) {
+  document.querySelector('#dialog-content').innerHTML = content;
+  document.querySelector('#dialog-content h2').id = 'dialog-title';
+  dialog.setAttribute('aria-labelledby', 'dialog-title');
+  if (!dialog.open) dialog.showModal();
+}
+function showNotes() {
+  const flags = state.run?.flags || {};
+  const notes = [
+    flags.mapRead && ['The office map', 'The footpath crosses the gorge, visits the orchard, then descends to the harbor. Bring a lamp.'],
+    flags.bridgeChecked && ['The old bridge', 'The stone deck is sound. The gate is open. The route beyond it is unlit.'],
+    flags.promise && ['A promise made', `You told ${flags.promise === 'mira' ? 'Mira' : 'Oren'} you would try to get them home.`],
+  ].filter(Boolean);
+  openDialog(`<div class="eyebrow">Collected along the way</div><h2>Field notes</h2>${notes.length ? notes.map(([title,text])=>`<div class="note-item"><h3>${title}</h3><p>${text}</p></div>`).join('') : '<p class="empty-note">An empty page, for now.<br>There are things to discover at Bracken.</p>'}<div class="note-item"><small>${state.endings.length} of 3 endings found</small><p>Discoveries belong to this journey. Found endings stay with you.</p></div>`);
+}
+function exportNotes() {
+  const report = makePlaytest(state.run, state.feedback[state.run.id], state.endings);
+  const url = URL.createObjectURL(new Blob([JSON.stringify(report, null, 2) + '\n'], {type:'application/json'}));
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `last-lantern-playtest-${state.run.id.slice(0,8)}.json`;
+  document.body.append(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  toast('Playtest notes downloaded. Share them only if you wish.');
+}
+document.addEventListener('click', event => {
+  const button = event.target.closest('[data-action]');
+  if (!button) return;
+  event.preventDefault();
+  switch (button.dataset.action) {
+    case 'begin': newJourney(); break;
+    case 'continue': renderStory(); break;
+    case 'home': showLanding(true); break;
+    case 'choose': {
+      const before = state.run.flags;
+      state.run = choose(state.run, button.dataset.choice);
+      const ending = currentNode(state.run).ending;
+      if (ending && !state.endings.includes(ending.id)) state.endings.push(ending.id);
+      save();
+      if (ending) track('story_complete');
+      chime();
+      renderStory();
+      if (!before.mapRead && state.run.flags.mapRead) toast('Field note added: the old walking route');
+      if (!before.bridgeChecked && state.run.flags.bridgeChecked) toast('Field note added: the sound bridge');
+      break;
+    }
+    case 'back': state.run = rewind(state.run); save(); renderStory(); break;
+    case 'restart':
+      openDialog('<div class="eyebrow">Another way home</div><h2>Start a new journey?</h2><p>Your current choices will reset. The endings you have found will stay in your collection.</p><div class="dialog-actions"><button class="primary" data-action="confirm-restart">Begin again <span aria-hidden="true">→</span></button><button class="text-link" data-action="close-dialog">Keep this journey</button></div>');
+      break;
+    case 'confirm-restart': dialog.close(); newJourney(); break;
+    case 'close-dialog': dialog.close(); break;
+    case 'notes': showNotes(); break;
+    case 'about':
+      openDialog('<div class="eyebrow">The first chapter</div><h2>A story worth a small detour.</h2><p>The Last Lantern is an original, written branching story from Echo Trails. Every path has a complete ending. There is no timer, and you can revisit an earlier choice.</p><p>This prototype uses authored story branches. Your choices and optional feedback stay in this browser. Downloading playtest notes creates a file you can choose to share.</p><p>Sound is optional. No accounts, payments, or external services are needed to play.</p>');
+      break;
+    case 'sound':
+      try {
+        const Audio = window.AudioContext || window.webkitAudioContext;
+        if (!audioContext) audioContext = new Audio();
+        soundOn = !soundOn;
+        button.setAttribute('aria-pressed', String(soundOn));
+        button.innerHTML = `<span aria-hidden="true">♪</span> Sound ${soundOn ? 'on' : 'off'}`;
+        chime();
+      } catch { toast('Sound is not available in this browser.'); }
+      break;
+    case 'feedback':
+      state.feedback[state.run.id] = button.dataset.value;
+      save();
+      document.querySelectorAll('[data-action="feedback"]').forEach(el => el.setAttribute('aria-pressed', String(el.dataset.value === button.dataset.value)));
+      toast('Thank you. Your answer is saved on this device.');
+      break;
+    case 'export': exportNotes(); break;
+  }
+});
+dialog.addEventListener('click', event => { if (event.target === dialog) { const rect = dialog.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close(); } });
+window.addEventListener('hashchange', () => {
+  if (location.hash === '#story' && state.run) renderStory(false);
+  else if (!location.hash || location.hash === '#') showLanding(false);
+});
+if (location.hash === '#story' && state.run) renderStory(false); else showLanding();
+
+</script>
+</body>
+</html>
